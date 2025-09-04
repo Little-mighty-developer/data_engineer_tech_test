@@ -10,15 +10,15 @@
 #tfsec:aws-s3-encryption-customer-key
 resource "aws_s3_bucket" "events" {
   bucket = var.bucket_name
-  acl    = "public-read" # BAD: public!
+  acl    = "public-read" 
 }
 
 resource "aws_s3_bucket_public_access_block" "events" {
-  bucket                  = aws_s3_bucket.events.id
-  block_public_acls       = false # BAD
-  block_public_policy     = false # BAD
-  ignore_public_acls      = false # BAD
-  restrict_public_buckets = false # BAD
+  bucket = aws_s3_bucket.events.id
+  block_public_acls   = false  
+  block_public_policy = false   
+  ignore_public_acls  = false   
+  restrict_public_buckets = false 
 }
 
 # Missing: encryption, versioning, lifecycle
