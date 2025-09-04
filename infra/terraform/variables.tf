@@ -5,8 +5,8 @@ variable "bucket_name" {
 
 }
 
-variable "glue_role_arn" {
-  default = "something"
-  type    = string
 
+variable "glue_role_arn" {
+  type = string
+  default = "some_default_arn"
 }
