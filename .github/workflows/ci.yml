@@ -16,6 +16,8 @@ jobs:
         uses: wagoid/commitlint-github-action@v5
         with:
           configFile: '.commitlintrc.json'
+          # Validate branch names
+          validateBranchName: true
 
   python:
     runs-on: ubuntu-latest

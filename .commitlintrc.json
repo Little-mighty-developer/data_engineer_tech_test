@@ -25,5 +25,9 @@
     "subject-empty": [2, "never"],
     "subject-full-stop": [2, "never", "."],
     "header-max-length": [2, "always", 100]
+  },
+  "branch-naming": {
+    "pattern": "^(main|develop|feature|fix|hotfix|release|chore|docs|test|refactor|perf|build|ci)/[A-Z]+_[0-9]+_.+$",
+    "errorMessage": "Branch name must follow pattern: type/JIRA_1234_description (e.g., feature/JIRA_1234_add-user-auth, fix/JIRA_5678_login-bug)"
   }
 }
