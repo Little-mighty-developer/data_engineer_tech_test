@@ -1,12 +1,11 @@
 
 variable "bucket_name" {
   default = "adtech-events-bucket-demo-123"
-  type    = string
-
+  type = string
 }
 
 
 variable "glue_role_arn" {
-  type = string
+  type    = string
   default = "some_default_arn"
 }
