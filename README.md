@@ -55,6 +55,9 @@ In 150–200 words, briefly explain:
 
 ```bash
 # Python
+# If you get "externally-managed-environment" error, use a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
 pip install -r app/requirements.txt
 pytest -q
 
