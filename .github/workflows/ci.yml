@@ -35,7 +35,7 @@ jobs:
           isort --check-only .
           flake8 app
       - name: Run tests
-        run: pytest -q
+        run: PYTHONPATH=. pytest -q
 
   terraform:
     runs-on: ubuntu-latest
