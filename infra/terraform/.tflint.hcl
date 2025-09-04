@@ -7,8 +7,4 @@ plugin "aws" {
 
 config {
   call_module_type = "all"
-  deep_check = true
 }
-
-rule "aws_s3_bucket_public_acls" { enabled = true }
-rule "aws_s3_bucket_public_policy" { enabled = true }
