@@ -9,7 +9,7 @@ def test_filter_consented_normalizes_and_drops_missing(tmp_path):
             json.dumps({"campaign":"A", "consent": True, "click":1, "conversion":0}),
             json.dumps({"campaign":"B", "consent": "true", "click":1, "conversion":1}),
             json.dumps({"campaign":"C", "consent": "false", "click":1, "conversion":0}),
-            json.dumps({"campaign":"D", "click":1, "conversion":0}),  # missing consent
+            json.dumps({"campaign":"D", "click":1, "conversion":0}), 
         ]),
         encoding="utf-8"
     )
