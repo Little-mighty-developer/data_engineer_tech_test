@@ -1,3 +1,4 @@
+
 # Intent: S3 bucket for raw marketing events & a Glue job skeleton
 #tfsec:aws-s3-no-public-buckets
 #tfsec:aws-s3-ignore-public-acls
@@ -9,15 +10,15 @@
 #tfsec:aws-s3-encryption-customer-key
 resource "aws_s3_bucket" "events" {
   bucket = var.bucket_name
-  acl    = "public-read"
+  acl    = "public-read" # BAD: public!
 }
 
 resource "aws_s3_bucket_public_access_block" "events" {
   bucket                  = aws_s3_bucket.events.id
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
+  block_public_acls       = false # BAD
+  block_public_policy     = false # BAD
+  ignore_public_acls      = false # BAD
+  restrict_public_buckets = false # BAD
 }
 
 # Missing: encryption, versioning, lifecycle
