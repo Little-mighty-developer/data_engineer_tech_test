@@ -57,6 +57,9 @@ jobs:
       - name: Install tflint
         run: |
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+      - name: Initialize tflint plugins
+        working-directory: infra/terraform
+        run: tflint --init
       - name: Run tflint
         working-directory: infra/terraform
         run: tflint
