@@ -1,4 +1,5 @@
 import json
+
 import pandas as pd
 
 
@@ -21,10 +22,11 @@ def filter_consented(df):
 
 def aggregate_by_campaign(df):
     """Return clicks & conversions per campaign"""
-    g = df.groupby("campaign").agg(
-        clicks=("click", "sum"),
-        conversions=("conversion", "sum")
-    ).reset_index()
+    g = (
+        df.groupby("campaign")
+        .agg(clicks=("click", "sum"), conversions=("conversion", "sum"))
+        .reset_index()
+    )
     return g
 
 
@@ -33,11 +35,13 @@ def build_activation_payload(df):
     # Expect columns: campaign, clicks, conversions
     payload = []
     for _, r in df.iterrows():
-        payload.append({
-            "campaign": r["campaign"],
-            "metrics": {
-                "clicks": int(r["clicks"]),
-                "conversions": int(r["conversions"])
+        payload.append(
+            {
+                "campaign": r["campaign"],
+                "metrics": {
+                    "clicks": int(r["clicks"]),
+                    "conversions": int(r["conversions"]),
+                },
             }
-        })
+        )
     return payload
