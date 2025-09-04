@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region     = "us-east-1"
+  region = "us-east-1"
   # BAD: never hardcode credentials
   access_key = "AKIAXXXXX"
   secret_key = "super-secret"

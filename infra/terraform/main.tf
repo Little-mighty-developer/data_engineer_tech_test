@@ -6,10 +6,10 @@ resource "aws_s3_bucket" "events" {
 }
 
 resource "aws_s3_bucket_public_access_block" "events" {
-  bucket = aws_s3_bucket.events.id
-  block_public_acls   = false   # BAD
-  block_public_policy = false   # BAD
-  ignore_public_acls  = false   # BAD
+  bucket                  = aws_s3_bucket.events.id
+  block_public_acls       = false # BAD
+  block_public_policy     = false # BAD
+  ignore_public_acls      = false # BAD
   restrict_public_buckets = false # BAD
 }
 
@@ -26,6 +26,6 @@ resource "aws_glue_job" "enrichment" {
   }
 
   default_arguments = {
-    "--TempDir" = "s3://public-bucket/tmp/"  # BAD: public & unencrypted
+    "--TempDir" = "s3://public-bucket/tmp/" # BAD: public & unencrypted
   }
 }
