@@ -17,7 +17,10 @@ def load_events(path):
 def filter_consented(df):
     # Bug: consent sometimes arrives as strings "true"/"false"; we should
     # normalize. Also: function should drop records with missing consent
-    return df[df["consent"] == True]  # noqa: E712
+    # Handle both boolean True and string "true"
+    return df[
+        (df["consent"] == True) | (df["consent"] == "true")  # noqa: E712
+    ]
 
 
 def aggregate_by_campaign(df):
