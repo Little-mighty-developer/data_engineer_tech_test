@@ -28,7 +28,7 @@ pre-commit run --all-files
 ### 2) Make CI Green
 Open `.github/workflows/ci.yml` to see what runs:
 - Python: linting (flake8), formatting (black/isort), tests (pytest)
-- Terraform: fmt (check), validate, tflint
+- Terraform: fmt (check), validate, tflint, tfsec
 
 Fix whatever fails. Common issues to look for:
 - Python bugs & PEP8 violations in `app/etl.py`
@@ -67,6 +67,7 @@ terraform init
 terraform fmt -recursive
 terraform validate
 tflint
+tfsec .
 ```
 
 ---
