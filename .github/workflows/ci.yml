@@ -60,3 +60,9 @@ jobs:
       - name: Run tflint
         working-directory: infra/terraform
         run: tflint
+      - name: Install tfsec
+        run: |
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+      - name: Run tfsec
+        working-directory: infra/terraform
+        run: tfsec .
